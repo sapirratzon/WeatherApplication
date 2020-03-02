@@ -9,9 +9,9 @@ const Weather = (props) => {
                 {props.weatherBasicData.tempCelsius ?
                     <h1 className={"py-2"}>{props.weatherBasicData.tempCelsius}&deg;c</h1> : null}
                 {minmaxTemp(props.weatherBasicData.minTemp, props.weatherBasicData.maxTemp)}
-                {props.weatherBasicData.weatherIcon ?
+                {props.weatherBasicData.icon ?
                     <i id="icon"><img id="wicon"
-                                      src={`http://openweathermap.org/img/w/${props.weatherBasicData.weatherIcon}.png`}
+                                      src={process.env.REACT_APP_WEATHER_ICONS + props.weatherBasicData.icon + ".png"}
                                       alt="Weather icon"/></i> : null}
                 <h4 className={"py-3"}> {props.weatherBasicData.description}</h4>
             </div>
