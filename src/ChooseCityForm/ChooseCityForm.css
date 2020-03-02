@@ -2,7 +2,7 @@ form{
     margin-top: 3rem;
 }
 
-form input[name="city_zip_code"],
+form input[name="cityZipCode"],
 form input[name="country"]{
     background-color: transparent;
     border: 0;

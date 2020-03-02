@@ -7,7 +7,7 @@ const Form = props => {
             <form onSubmit={props.loadWeather}>
                 <div className={"row"}>
                     <div className={"col-md-3 offset-md-2"}>
-                        <input type={"text"} className={"form-control"} name={"city_zip_code"} autoComplete={"off"} placeholder={"Zip Code"}/>
+                        <input type={"text"} className={"form-control"} name={"cityZipCode"} autoComplete={"off"} placeholder={"Zip Code"}/>
                     </div>
                     <div className={"col-md-3"}>
                         <input type={"text"} className={"form-control"} name={"country"} autoComplete={"off"} placeholder={"Country"}/>
@@ -18,7 +18,7 @@ const Form = props => {
                 </div>
                 <div>To Change location Please Enter Zip Code and Country (optional; default country: us)</div>
             </form>
-            <div>{props.error? error(props.error_info) : null}</div>
+            <div>{props.error? error(props.errorInfo) : null}</div>
         </div>
     )
 };

@@ -15,7 +15,8 @@ const ForecastChart = props => {
                                     return data['labels'][tooltipItem[0]['index']];
                                 },
                                 label: function (tooltipItem, data) {
-                                    return data['datasets'][0]['data'][tooltipItem['index']] + "℃";
+                                    return "max: " + data['datasets'][0]['data'][tooltipItem['index']] + "℃\n"
+                                    + "min: " + data['datasets'][1]['data'][tooltipItem['index']] + "℃";
                                 },
                                 afterLabel: function (tooltipItem, data) {
                                     return data['datasets'][0]['text'][tooltipItem['index']];
@@ -24,7 +25,7 @@ const ForecastChart = props => {
                         }
                     }
                 }
-                data={props.forecast_data}
+                data={props.forecastData}
 
             />
         </div>
