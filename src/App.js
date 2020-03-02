@@ -6,7 +6,7 @@ import Form from "./ChooseCityForm/ChooseCityForm"
 import ForecastChart from "./ForecastChart/ForecastChart"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "weather-icons/css/weather-icons.css";
-import { query } from './weather.json';
+import {query} from './weather.json';
 import Switch from 'react-switch'
 
 class App extends Component {
@@ -67,7 +67,7 @@ class App extends Component {
     updateExtraWeatherDataJson = () => {
         const channelJson = this.weatherInfo["results"]["channel"];
         const weatherData = {
-            windSpeed: Math.round(channelJson["wind"]["speed"]),
+            windSpeed: Math.round(channelJson["wind"]["speed"] * 0.44704),
             humidity: channelJson["atmosphere"]["humidity"],
             atmoPressure: channelJson["atmosphere"]["pressure"],
             sunriseTime: channelJson["astronomy"]["sunrise"],
@@ -102,7 +102,7 @@ class App extends Component {
             dailyLowTemp: [],
             dailyDescription: []
         };
-        response ? weeklyForecast = this.updateWeatherForecastAPI(response, weeklyForecast):
+        response ? weeklyForecast = this.updateWeatherForecastAPI(response, weeklyForecast) :
             weeklyForecast = this.updateWeatherForecastJson(weeklyForecast);
         this.setState({
             forecastData: {
@@ -129,7 +129,7 @@ class App extends Component {
 
     updateWeatherForecastJson = (weeklyForecast) => {
         const days = 7;
-        for (let idx = 0; idx < days; idx++){
+        for (let idx = 0; idx < days; idx++) {
             let dailyData = this.weatherInfo["results"]["channel"]["item"]["forecast"][idx];
             weeklyForecast.days.push(dailyData["day"]);
             weeklyForecast.dailyLowTemp.push(this.calCelsiusJson(dailyData["low"]));
@@ -151,7 +151,7 @@ class App extends Component {
     updateWeatherForecastAPI = (forecastWeatherData, weeklyForecast) => {
         let tempWeeklyForecast = {};
         let forecastDay = "";
-        for (let idx = 0; idx < forecastWeatherData.list.length; idx++){
+        for (let idx = 0; idx < forecastWeatherData.list.length; idx++) {
             const dailyForecast = forecastWeatherData.list[idx];
             forecastDay = new Date(dailyForecast.dt * 1000).toString().split(' ')[0];
             if (!tempWeeklyForecast[forecastDay])
@@ -160,7 +160,7 @@ class App extends Component {
             tempWeeklyForecast[forecastDay].push(dailyForecast.main.temp_min);
             weeklyForecast.dailyDescription.push(dailyForecast.weather[0].description);
         }
-        for(let day in tempWeeklyForecast) {
+        for (let day in tempWeeklyForecast) {
             if (tempWeeklyForecast.hasOwnProperty(day)) {
                 weeklyForecast.dailyLowTemp.push(Math.min.apply(null, tempWeeklyForecast[day]));
                 weeklyForecast.dailyHighTemp.push(Math.max.apply(null, tempWeeklyForecast[day]));
@@ -178,17 +178,17 @@ class App extends Component {
     };
 
     handleChange = (checked) => {
-        this.setState({ checked });
+        this.setState({checked});
     };
 
     calCelsiusJson = (temp) => {
-        return Math.round((temp - 32) * 5/9);
+        return Math.round((temp - 32) * 5 / 9);
     };
 
     getWeather = async (event) => {
         event.preventDefault();
         let cityZipCode = event.target.elements.cityZipCode.value;
-        let country= event.target.elements.country.value;
+        let country = event.target.elements.country.value;
         if (!cityZipCode) {
             cityZipCode = "10007";
             country = "us";
@@ -201,8 +201,8 @@ class App extends Component {
             const zipWeatherData = await zipWeatherAPICall.json();
             const ForecastWeatherData = await forecastAPICall.json();
             this.updateWeatherDataAPI(zipWeatherData);
-            this.updateExtraWeatherDataAPI (zipWeatherData);
-            this.updateExtraWeatherDataAPI (zipWeatherData);
+            this.updateExtraWeatherDataAPI(zipWeatherData);
+            this.updateExtraWeatherDataAPI(zipWeatherData);
             this.updateWeatherForecast(ForecastWeatherData);
             this.updateCityRequest(false, "");
         } catch (ex) {

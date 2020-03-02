@@ -1,9 +1,9 @@
-form{
+form {
     margin-top: 3rem;
 }
 
 form input[name="cityZipCode"],
-form input[name="country"]{
+form input[name="country"] {
     background-color: transparent;
     border: 0;
     color: white;
@@ -11,15 +11,15 @@ form input[name="country"]{
     border-radius: 0;
 }
 
-form input:focus{
+form input:focus {
     background-color: transparent !important;
     box-shadow: none !important;
 }
 
-form input .container::-webkit-input-placeholder{
+form input .container::-webkit-input-placeholder {
     color: white !important;
 }
 
-div .alert-alert-danger{
+div .alert-alert-danger {
     color: red;
 }

@@ -3,7 +3,7 @@ import {Line} from 'react-chartjs-2'
 import './ForecastChart.css'
 
 const ForecastChart = props => {
-    return(
+    return (
         <div className={"chart"}>
             <h4>Daily Forecast</h4>
             <Line
@@ -16,7 +16,7 @@ const ForecastChart = props => {
                                 },
                                 label: function (tooltipItem, data) {
                                     return "max: " + data['datasets'][0]['data'][tooltipItem['index']] + "℃\n"
-                                    + "min: " + data['datasets'][1]['data'][tooltipItem['index']] + "℃";
+                                        + "min: " + data['datasets'][1]['data'][tooltipItem['index']] + "℃";
                                 },
                                 afterLabel: function (tooltipItem, data) {
                                     return data['datasets'][0]['text'][tooltipItem['index']];
@@ -29,7 +29,7 @@ const ForecastChart = props => {
 
             />
         </div>
-        )
+    )
 };
 
 export default ForecastChart;

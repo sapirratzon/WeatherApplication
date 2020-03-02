@@ -2,7 +2,7 @@ import React from 'react'
 import './ExtraWeatherInfo.css'
 
 const ExtraInfo = props => {
-    return(
+    return (
         <div className={"container"}>
             <div className={"cards pt-4"}>
                 <ol>
@@ -14,6 +14,7 @@ const ExtraInfo = props => {
                 </ol>
             </div>
         </div>
-    )};
+    )
+};
 
 export default ExtraInfo;
