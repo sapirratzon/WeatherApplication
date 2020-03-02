@@ -214,7 +214,7 @@ class App extends Component {
         return (
             <div className={"App"}>
                 <Form loadWeather={this.getWeather} error={this.state.error} errorInfo={this.state.errorInfo}/>
-                <Weather weatherBasicData={this.state.weatherBasicData}/>
+                <Weather className={"weather"} weatherBasicData={this.state.weatherBasicData}/>
                 <div className={"extraData"}>
                     <label><span>Press for  </span>
                         <Switch
