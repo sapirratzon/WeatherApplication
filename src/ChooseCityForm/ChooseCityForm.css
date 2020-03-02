@@ -1,0 +1,25 @@
+form{
+    margin-top: 3rem;
+}
+
+form input[name="city_zip_code"],
+form input[name="country"]{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    border-bottom: 2px solid whitesmoke;
+    border-radius: 0;
+}
+
+form input:focus{
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+form input .container::-webkit-input-placeholder{
+    color: white !important;
+}
+
+div .alert-alert-danger{
+    color: red;
+}

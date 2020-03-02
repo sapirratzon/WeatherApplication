@@ -6,9 +6,15 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^4.4.1",
+    "bootstrap4-toggle": "^3.6.1",
+    "chart.js": "^2.9.3",
     "react": "^16.13.0",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "react-switch": "^5.0.1",
+    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git"
   },
   "scripts": {
     "start": "react-scripts start",
